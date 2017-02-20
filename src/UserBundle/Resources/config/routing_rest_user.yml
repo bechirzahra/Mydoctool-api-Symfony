@@ -1,0 +1,29 @@
+registration:
+    type: annotation
+    prefix: /api
+    resource: UserBundle\Controller\RegistrationController
+
+change_password:
+    type: annotation
+    prefix: /api
+    resource: UserBundle\Controller\ChangePasswordController
+
+profile:
+    type: annotation
+    prefix: /api
+    resource: UserBundle\Controller\ProfileController
+
+users:
+    type: rest
+    prefix: /api
+    resource: UserBundle\Controller\UsersController
+
+organizations:
+    type: rest
+    prefix: /api
+    resource: UserBundle\Controller\OrganizationsController
+
+invites:
+    type: rest
+    prefix: /api
+    resource: UserBundle\Controller\InvitesController

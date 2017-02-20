@@ -1,0 +1,20 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block subject %}
+{% autoescape false %}
+Réinitialiser votre mot de passe MyDocTool
+{% endautoescape %}
+{% endblock %}
+{% block body_text %}
+{% autoescape false %}
+Bonjour {{user.getPrintableName()}},
+Vous avez oublié votre mot de passe MyDocTool ?
+
+Pour réinitialiser votre mot de passe, cliquez sur le lien ci-dessous ou copiez-le et collez-le dans votre navigateur : {{confirmationUrl}}
+
+Si vous ne voulez pas réinitialiser votre mot de passe, ignorez ce message et votre mot de passe ne sera pas changé.
+
+Bien cordialement,
+L’équipe MyDocTool
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}{% endblock %}

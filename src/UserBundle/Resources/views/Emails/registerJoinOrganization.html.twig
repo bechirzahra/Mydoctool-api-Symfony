@@ -1,0 +1,18 @@
+{% extends 'AppBundle:Emails:baseEmail.html.twig' %}
+
+{% block ctaText %}Cliquez ici{% endblock ctaText %}
+{% block ctaUrl %}{{url}}{% endblock ctaUrl %}
+
+{% block topBlock %}
+    {% if type == 'manager' %}
+        Vous êtes invité à vous inscrire sur la plateforme de suivi patient MyDocTool pour manager l'organization <b>{{organization.name|capitalize}}</b>.
+    {% else %}
+        Vous êtes invité à vous inscrire sur la plateforme de suivi patient MyDocTool.
+    {% endif %}
+{% endblock topBlock %}
+
+{% block mainText %}
+    <p style="margin: 0;font-size: 14px;line-height: 20px; color: #5E5E5E;">
+        N’oubliez pas d’en prendre connaissance aujourd’hui en cliquant sur le lien ci dessus.
+    </p>
+{% endblock mainText %}

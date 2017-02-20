@@ -1,0 +1,4 @@
+registration:
+    type: annotation
+    prefix: /api/admin
+    resource: AdminBundle\Controller\DefaultController

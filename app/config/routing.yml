@@ -1,0 +1,32 @@
+app:
+    resource: "AppBundle\Controller\DefaultController"
+    type:     annotation
+    prefix: /api
+
+rest:
+    resource: "@AppBundle/Resources/config/routing_rest.yml"
+    type: rest
+    prefix: /api
+
+routing_user:
+    resource: "@UserBundle/Resources/config/routing_rest_user.yml"
+
+routing_admin:
+    resource: "@AdminBundle/Resources/config/routing_admin.yml"
+
+fos_user_security_login:
+    path:     /api/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+fos_user_security_check:
+    path:     /api/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    path:     /api/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+# FOSUserBundle
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: /api

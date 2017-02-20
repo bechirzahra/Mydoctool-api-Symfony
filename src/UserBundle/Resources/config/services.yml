@@ -1,0 +1,44 @@
+parameters:
+    mailer_params:
+        confirmation.template: %fos_user.registration.confirmation.template%
+        resetting.template: %fos_user.resetting.email.template%
+        from_email:
+            confirmation: %fos_user.registration.confirmation.from_email%
+            resetting: %fos_user.resetting.email.from_email%
+        front:
+            url: %front_url%
+            reset_endpoint: %reset_endpoint%
+            register_endpoint: %register_endpoint%
+
+services:
+    rest_registration:
+        class: UserBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: rest_registration }
+
+    rest_change_password:
+        class: UserBundle\Form\Type\ChangePasswordFormType
+        tags:
+            - { name: form.type, alias: rest_change_password }
+
+    rest_resetting:
+        class: UserBundle\Form\Type\ResettingFormType
+        tags:
+            - { name: form.type, alias: rest_resetting }
+
+    mdt.mailer:
+        class: UserBundle\Mailer\Mailer
+        arguments: [@mailer, @router, @templating, %mailer_params%]
+
+    mdt_api.event.authentication_success_listener:
+        class: UserBundle\EventListener\AuthenticationSuccessListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
+    invite_manager:
+        class: UserBundle\Model\InviteManager
+        arguments: [@mdt.mailer, @translator, @router, %mailer_params%]
+
+    mdt.item_manager:
+        class: AppBundle\Model\ItemManager
+        arguments: []

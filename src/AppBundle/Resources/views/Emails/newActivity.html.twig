@@ -1,0 +1,18 @@
+{% extends 'AppBundle:Emails:baseEmail.html.twig' %}
+
+{% block ctaText %}Cliquez ici{% endblock ctaText %}
+{% block ctaUrl %}http://app.mydoctool.com{% endblock ctaUrl %}
+
+{% block topBlock %}
+    Aujourd’hui, vous avez {{count.questions}} questions, {{count.tasks}} tâches, {{count.notices}} informations nouvelles sur MyDocTool.
+{% endblock topBlock %}
+
+{% block mainText %}
+    <p style="margin: 0;font-size: 14px;line-height: 20px; color: #5E5E5E;">
+        N’oubliez pas d’en prendre connaissance aujourd’hui en cliquant sur le lien ci dessus.<br/>
+    </p>
+
+    <p style="margin: 0;font-size: 14px;line-height: 20px; color: #5E5E5E;">
+    Ps : votre santé nous concerne, il est important de suivre les messages que nous vous envoyons avec attention.
+    </p>
+{% endblock mainText %}

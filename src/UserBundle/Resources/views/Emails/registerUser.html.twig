@@ -1,0 +1,24 @@
+{% extends 'AppBundle:Emails:baseEmail.html.twig' %}
+
+{% block ctaText %}Cliquez ici{% endblock ctaText %}
+{% block ctaUrl %}{{url}}{% endblock ctaUrl %}
+
+{% block topBlock %}
+    {% if type == 'patient' %}
+        Vous êtes invité à vous inscrire par le Dr {{user.getPrintableName()}} sur la plateforme de suivi patient MyDocTool.
+    {% else %}
+        Vous êtes invité à vous inscrire sur la plateforme de suivi patient MyDocTool.
+    {% endif %}
+{% endblock topBlock %}
+
+{% block mainText %}
+    {% if type == 'patient' %}
+    <p style="margin: 0;font-size: 14px;line-height: 20px; color: #5E5E5E;">
+        En vous inscrivant vous recevrez de sa part régulièrement des informations, des questions et des recommandations importantes pour la qualité de votre suivi santé.<br/>
+    </p>
+    {% endif %}
+
+    <p style="margin: 0;font-size: 14px;line-height: 20px; color: #5E5E5E;">
+        N’oubliez pas d’en prendre connaissance aujourd’hui en cliquant sur le lien ci dessus.
+    </p>
+{% endblock mainText %}

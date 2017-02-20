@@ -1,0 +1,23 @@
+messages:
+    type: rest
+    resource: AppBundle\Controller\MessagesController
+
+documents:
+    type: rest
+    resource: AppBundle\Controller\DocumentsController
+
+listings:
+    type: rest
+    resource: AppBundle\Controller\ListingsController
+
+categories:
+    type: rest
+    resource: AppBundle\Controller\CategoriesController
+
+item_activities:
+    type: rest
+    resource: AppBundle\Controller\ItemActivitiesController
+
+alerts:
+    type: rest
+    resource: AppBundle\Controller\AlertsController
